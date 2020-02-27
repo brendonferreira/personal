@@ -1,0 +1,56 @@
+{
+    "apps": [
+        {
+            "name": "wake-up",
+            "modulePath": "./apps/alarm",
+            "params": {
+                "schedule": "0 0,30 5 * * *"
+            },
+            "on": {
+                "alarm": [
+                    {
+                        "type": "execute-app",
+                        "name": "play-mundo-livre",
+                        "method": "play",
+                        "params": {}
+                    }
+                ]
+            }
+        },
+        {
+            "name": "play-mundo-livre",
+            "modulePath": "./apps/mp3-song-player",
+            "params": {
+                "url": "https://rrdns-continental.webnow.com.br/mundolivre.mp3"
+            }
+        },
+        {
+            "name": "play-alarm-sound",
+            "modulePath": "./apps/mp3-song-player",
+            "params": {
+                "url": "./annoying-alarm.mp3"
+            }
+        },
+        {
+            "name": "starter",
+            "modulePath": "./apps/booter",
+            "params": {
+            },
+            "on": {
+                "boot": [
+                    {
+                        "type": "execute-app",
+                        "name": "play-alarm-sound",
+                        "method": "play"
+                    },
+
+                    {
+                        "type": "execute-app",
+                        "name": "play-mundo-livre",
+                        "method": "play"
+                    }
+                ]
+            }
+        }
+    ]
+}
