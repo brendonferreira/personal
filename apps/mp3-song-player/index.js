@@ -16,7 +16,7 @@ module.exports.play = async (params, context) => {
     }
 
     const speaker = new Speaker({
-        // device: 'hw:1,0'
+        // device: 'hw:2,0'
     })
     
     stream.pipe(decoder())

@@ -4,15 +4,20 @@
             "name": "wake-up",
             "modulePath": "./apps/alarm",
             "params": {
-                "schedule": "0 0,30 5 * * *"
+                "schedule": "0 30 5 * * *"
             },
             "on": {
                 "alarm": [
                     {
                         "type": "execute-app",
+                        "name": "play-alarm-sound",
+                        "method": "play"
+                    },
+
+                    {
+                        "type": "execute-app",
                         "name": "play-mundo-livre",
-                        "method": "play",
-                        "params": {}
+                        "method": "play"
                     }
                 ]
             }
@@ -29,27 +34,6 @@
             "modulePath": "./apps/mp3-song-player",
             "params": {
                 "url": "./annoying-alarm.mp3"
-            }
-        },
-        {
-            "name": "starter",
-            "modulePath": "./apps/booter",
-            "params": {
-            },
-            "on": {
-                "boot": [
-                    {
-                        "type": "execute-app",
-                        "name": "play-alarm-sound",
-                        "method": "play"
-                    },
-
-                    {
-                        "type": "execute-app",
-                        "name": "play-mundo-livre",
-                        "method": "play"
-                    }
-                ]
             }
         }
     ]
